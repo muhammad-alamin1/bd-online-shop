@@ -2,7 +2,7 @@ import './shop.css';
 import React, { useState } from 'react';
 import fakeData from '../../fakeData';
 import Product from '../Product/Product';
-import Cart from '../../Cart/Cart';
+import Cart from '../Cart/Cart';
 
 const Shop = () => {
     // console.log(fakeData); 
