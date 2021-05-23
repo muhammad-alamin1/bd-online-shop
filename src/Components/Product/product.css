@@ -1,0 +1,24 @@
+.product{
+    display:flex;
+    border-bottom: 1px solid rgb(209, 205, 205);
+    padding:1rem;
+
+}
+.product-img{
+    margin-right: 10px;
+}
+.product-details a{
+    text-decoration:none;
+    
+}
+.product-details a:hover{
+    text-decoration:underline;
+}
+.main-btn{
+    background-color:rgb(219, 168, 37);
+    width:150px;
+    height:30px;
+    border:1 px solid rgb(58, 55, 55);
+    border-radius:5px;
+    
+}
