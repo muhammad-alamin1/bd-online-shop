@@ -1,24 +1,18 @@
 
+import {
+  BrowserRouter as Router, Route, Switch
+} from "react-router-dom";
 import './App.css';
 import Header from './Components/Header/Header';
-import Shop from './Components/Shop/Shop';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-
-} from "react-router-dom";
-import Review from './Components/Review/Review';
 import Inventory from './Components/Inventory/Inventory';
 import NotFound from './Components/NotFound/NotFound';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
-
-
+import Review from './Components/Review/Review';
+import Shop from './Components/Shop/Shop';
 
 function App() {
   return (
     <div>
-
       <Router>
         <Header />
         <Switch>
