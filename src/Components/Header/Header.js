@@ -1,28 +1,72 @@
-import './header.css';
-import React, { useState } from 'react';
-import logo from '../../images/logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import './header.css';
 
 
 const Header = () => {
+    const { currUser, logout } = useAuth();
 
     return (
-        <div className="header">
-            <div className="text-center">
-                <img src={logo} alt="" />
-            </div>
-            <nav className="text-center">
-                <Link to="/shop">Shop</Link>
-                <Link to="/review">Review</Link>
-                <Link to="/inventory">Manage inventory </Link>
-                <a href="/"><FontAwesomeIcon icon={faShoppingCart} /></a>
-                <div className="product-search my-2">
-                    <input type="text" className="form-control" placeholder="Search product" />
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">BD Online Shop</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <Link to="/shop">Shop</Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link to="/review">Review</Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link to="/inventory">Manage inventory </Link>
+                            <a href="/"><FontAwesomeIcon icon={faShoppingCart} /></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search Items" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+
+                    {currUser ? (
+                        <>
+                            <span className="material-icons-outlined text-white" title="Account">
+                                account_circle
+                            </span>
+                            <span className="text-white">{currUser.displayName}</span>
+                            <span
+                                className="material-icons-outlined text-white"
+                                title="Logout"
+                                onClick={logout}
+                                style={{ cursor: "pointer" }}
+                            >
+
+                                logout
+                            </span>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/login">
+                                <button type="button" className="btn-brand me-2">
+                                    Sign In
+                                </button>
+                            </Link>
+                            <Link to="/signup">
+                                <button type="button" className="btn-brand">
+                                    Sign Up
+                                </button>
+                            </Link>
+                        </>
+                    )}
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     );
 };
 

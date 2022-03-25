@@ -1,10 +1,9 @@
-import './review.css';
 import React, { useEffect, useState } from 'react';
-import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import fakeData from '../../fakeData';
-import ReviewItems from '../ReviewItems/ReviewItems';
+import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
-import happyImage from '../../images/giphy.gif';
+import ReviewItems from '../ReviewItems/ReviewItems';
+import './review.css';
 
 const Review = () => {
     const [cart, setCart] = useState([]);
@@ -42,7 +41,7 @@ const Review = () => {
 
     let thankYou;
     if (orderPlaced) {
-        thankYou = <img src={happyImage} alt="" />
+        thankYou = <p>Order delivery soon</p>
     }
     return (
         <div className="twin-container" >

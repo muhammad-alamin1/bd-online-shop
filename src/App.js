@@ -3,31 +3,42 @@ import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
 import './App.css';
+import Login from "./Components/Auth/Login/Login";
+import PrivateRoute from "./Components/Auth/PrivateRoute/PrivateRoute";
+import PublicRoute from "./Components/Auth/PublicRoute/PublicRoute";
+import Signup from "./Components/Auth/Signup/Signup";
 import Header from './Components/Header/Header';
 import Inventory from './Components/Inventory/Inventory';
 import NotFound from './Components/NotFound/NotFound';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
 import Review from './Components/Review/Review';
 import Shop from './Components/Shop/Shop';
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <div>
+    <AuthProvider>
       <Router>
         <Header />
         <Switch>
           <Route path="/shop">
             <Shop />
           </Route>
-          <Route path="/review">
+          <PrivateRoute path="/review">
             <Review />
-          </Route>
-          <Route path="/inventory">
+          </PrivateRoute>
+          <PrivateRoute path="/inventory">
             <Inventory />
-          </Route>
+          </PrivateRoute>
           <Route path="/product/:productKey">
             <ProductDetails />
           </Route>
+          <PublicRoute path="/signup">
+            <Signup />
+          </PublicRoute>
+          <PublicRoute path="/login">
+            <Login />
+          </PublicRoute>
           <Route exact path="/">
             <Shop />
           </Route>
@@ -36,7 +47,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </AuthProvider>
 
   );
 }

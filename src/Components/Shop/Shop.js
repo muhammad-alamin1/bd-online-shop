@@ -1,19 +1,14 @@
-import './shop.css';
 import React, { useEffect, useState } from 'react';
-import fakeData from '../../fakeData';
-import Product from '../Product/Product';
-import Cart from '../Cart/Cart';
-import Header from '../Header/Header';
-import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import { Link } from 'react-router-dom';
-
-
+import fakeData from '../../fakeData';
+import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
+import Cart from '../Cart/Cart';
+import Product from '../Product/Product';
+import './shop.css';
 
 const Shop = () => {
-    // console.log(fakeData); 
     const [products, setProducts] = useState(fakeData); // 81 items
     const [cart, setCart] = useState([]);
-
 
     useEffect(() => {
         const saveCart = getDatabaseCart();
