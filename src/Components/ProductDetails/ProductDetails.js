@@ -1,8 +1,8 @@
-import './productDetails.css';
 import React from 'react';
 import { useParams } from 'react-router';
-import fakeData from '../../fakeData';
+import fakeData from '../../data';
 import Product from '../Product/Product';
+import './productDetails.css';
 
 
 const ProductDetails = () => {

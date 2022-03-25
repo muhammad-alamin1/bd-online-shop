@@ -1,11 +1,19 @@
-import './notFound.css';
 import React from 'react';
+import './notFound.css';
+
+// styles 
+const styles = {
+    textAlign: 'center',
+    color: 'red',
+    fontStyle: 'italic',
+}
 
 const NotFound = () => {
     return (
-        <div className="text-center text-danger">
-            <h1>404 </h1>
-            <h2>Page Not Found</h2>
+        <div style={styles}>
+            <h1>AWWW...DON'T CRY</h1>
+            <h4 style={{ color: 'red' }}>It's just 404 Error!</h4>
+            <p>What you are looking for may have been misplaced in long term memory.!</p>
         </div>
     );
 };

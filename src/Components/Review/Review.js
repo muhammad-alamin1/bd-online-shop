@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import fakeData from '../../fakeData';
+import fakeData from '../../data';
 import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
 import ReviewItems from '../ReviewItems/ReviewItems';
@@ -15,13 +15,11 @@ const Review = () => {
         processOrder();
     }
 
-
     const RemoveProduct = (productKey) => {
-        // console.log(productKey);
         const newCart = cart.filter(pd => pd.key !== productKey);
+
         setCart(newCart);
         removeFromDatabaseCart(productKey);
-
     }
 
     useEffect(() => {
@@ -33,9 +31,7 @@ const Review = () => {
             product.quantity = saveCart[key];
 
             return product;
-
         });
-        // console.log(cartProduct);
         setCart(cartProduct);
     }, []);
 

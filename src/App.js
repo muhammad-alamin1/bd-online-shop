@@ -11,6 +11,7 @@ import Header from './Components/Header/Header';
 import Inventory from './Components/Inventory/Inventory';
 import NotFound from './Components/NotFound/NotFound';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
+import Profile from "./Components/Profile/Profile";
 import Review from './Components/Review/Review';
 import Shop from './Components/Shop/Shop';
 import { AuthProvider } from "./context/AuthContext";
@@ -33,6 +34,9 @@ function App() {
           <Route path="/product/:productKey">
             <ProductDetails />
           </Route>
+          <PrivateRoute path="/user/profile">
+            <Profile />
+          </PrivateRoute>
           <PublicRoute path="/signup">
             <Signup />
           </PublicRoute>
@@ -48,7 +52,6 @@ function App() {
         </Switch>
       </Router>
     </AuthProvider>
-
   );
 }
 

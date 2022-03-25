@@ -1,17 +1,15 @@
-import './cart.css';
 import React from 'react';
+import './cart.css';
 
 const Cart = (props) => {
     const cart = props.cart;
-    console.log(cart);
     let totalPrice = 0;
-    // const totalPrice = cart.reduce((total, prd) => total + prd.price, 0);
+
     for (let i = 0; i < cart.length; i++) {
         const product = cart[i];
         totalPrice = totalPrice + product.price * product.quantity;
-        
-    }
 
+    }
 
     // shipping
     let shipping = 0;
@@ -31,7 +29,6 @@ const Cart = (props) => {
     // grand totalPrice
     const grandTotalPrice = (totalPrice + shipping + Number(tax)).toFixed(2);
 
-
     // format number
     const formatNumber = num => {
         const precision = num.toFixed(2);
@@ -41,10 +38,10 @@ const Cart = (props) => {
         <div>
             <h4 className="text-center text-warning">Order Summery</h4>
             <h6 className="text-center">Items Ordered: {cart.length}</h6><br />
-            <p>Product Price: $ {formatNumber(totalPrice)}</p>
-            <p>Shipping & Handling: $ {shipping}</p>
-            <p>Tax + VAT: $ {tax} (5%)</p>
-            <strong>Order Total: $ {grandTotalPrice} </strong><br /><br />
+            <p>Product Price: ${formatNumber(totalPrice)}</p>
+            <p>Shipping Cost: ${shipping}</p>
+            <p>Tax + VAT: ${tax} (5%)</p>
+            <strong>Total: ${grandTotalPrice} </strong><br /><br />
             {
                 props.children
             }
