@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import fakeData from '../../data';
 import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
+import OrderDelivery from '../OrderDelivery/OrderDelivery';
 import ReviewItems from '../ReviewItems/ReviewItems';
 import './review.css';
 
@@ -37,7 +38,7 @@ const Review = () => {
 
     let thankYou;
     if (orderPlaced) {
-        thankYou = <p>Order delivery soon</p>
+        thankYou = <OrderDelivery />
     }
     return (
         <div className="twin-container" >

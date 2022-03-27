@@ -10,6 +10,7 @@ import Signup from "./Components/Auth/Signup/Signup";
 import Header from './Components/Header/Header';
 import Inventory from './Components/Inventory/Inventory';
 import NotFound from './Components/NotFound/NotFound';
+import OrderDelivery from "./Components/OrderDelivery/OrderDelivery";
 import ProductDetails from './Components/ProductDetails/ProductDetails';
 import Profile from "./Components/Profile/Profile";
 import Review from './Components/Review/Review';
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <PrivateRoute path="/user/profile">
             <Profile />
+          </PrivateRoute>
+          <PrivateRoute path="/place-order">
+            <OrderDelivery />
           </PrivateRoute>
           <PublicRoute path="/signup">
             <Signup />

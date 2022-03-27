@@ -14,9 +14,8 @@
 // const app = initializeApp(firebaseConfig);
 // export default app;
 
+
 // comment code doesn't work, why ? I don't know
-
-
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {

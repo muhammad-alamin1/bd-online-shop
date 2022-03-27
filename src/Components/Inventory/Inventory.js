@@ -1,10 +1,10 @@
-import './inventory.css';
 import React from 'react';
+import './inventory.css';
 
 const Inventory = () => {
     return (
-        <div>
-            Developer is sleeping
+        <div id="inventory" className='my-5 text-center'>
+            Developer is sleeping now
         </div>
     );
 };
